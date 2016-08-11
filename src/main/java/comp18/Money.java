@@ -1,15 +1,16 @@
 package comp18;
 
 class Money {
-    public Money() {
-        //Default money
-        //_amount=0;
-        //_currency="BRL";
+    public Money() {}
+    // Quick constructor
+    public Money(String currencyCode, int amount) {
+        this._amount = amount;
+        this._currency.setCode(currencyCode);
     }
     public Money add(Money m) {
         Money money = new Money();
         money.setAmount(this.getAmount() + m.getAmount());
-        money.setCurrency(this.getCurrency());
+        money.setCurrency(this.getCurrencyCode());
         return money;
     }
     public int getAmount() {
@@ -18,12 +19,17 @@ class Money {
     public void setAmount(int amount) {
         this._amount = amount;
     }
-    public String getCurrency() {
+    public Currency getCurrency() {
         return _currency;
     }
-    public void setCurrency(String currency) {
-        this._currency = currency;
+    public String getCurrencyCode() {
+        return _currency.getCode();
+    }
+    public void setCurrency(String code) {
+        Currency myCurrency = new Currency();
+        myCurrency.setCode(code);
+        this._currency = myCurrency;
     }
     private int _amount;
-    private String _currency;
+    private Currency _currency;
 }
