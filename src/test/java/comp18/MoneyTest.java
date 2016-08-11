@@ -13,7 +13,7 @@ public class MoneyTest {
     @Test
     public void checkInitialMoney(){
         assertEquals(3,myMoney.getAmount());
-        assertEquals("BRL",myMoney.getCurrency());
+        assertEquals("BRL",myMoney.getCurrencyCode());
     }
     @Test
     public void addingAmountToMoney(){
