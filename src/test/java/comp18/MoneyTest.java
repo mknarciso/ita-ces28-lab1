@@ -17,9 +17,9 @@ public class MoneyTest {
     }
     @Test
     public void addingAmountToMoney(){
-        Money newAmount = new Money();
-        newAmount.setCurrency("BRL");
-        newAmount.setAmount(5);
+        Money newAmount = new Money("BRL",5);
+        //newAmount.setCurrency("BRL");
+        //newAmount.setAmount(5);
         myMoney = myMoney.add(newAmount);
         assertEquals(8,myMoney.getAmount());
     }

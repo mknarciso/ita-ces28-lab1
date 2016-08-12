@@ -1,11 +1,13 @@
 package comp18;
 
 class Money {
-    public Money() {}
+    public Money() {
+        _currency = new Currency();
+    }
     // Quick constructor
     public Money(String currencyCode, int amount) {
-        this._amount = amount;
-        this._currency.setCode(currencyCode);
+        _amount = amount;
+        _currency = new Currency(currencyCode);
     }
     public Money add(Money m) {
         Money money = new Money();

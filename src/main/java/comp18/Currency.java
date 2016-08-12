@@ -2,6 +2,10 @@ package comp18;
 
 public class Currency {
     private String _code;
+    public Currency(){}
+    public Currency(String code){
+        _code = code;
+    }
     public String getCode(){
         return _code;
     }
