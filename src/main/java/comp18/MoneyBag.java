@@ -44,5 +44,16 @@ public class MoneyBag {
             return 0;
         }
     }
+    
+    public List<Currency> allCurrencies(){
+        List<Currency> currencyList = new ArrayList<Currency>();
+        System.out.println("The money in our bag:");
+        for(int i=0; i<_wallet.size();i++){
+            currencyList.add(_wallet.get(i).getCurrency());
+            System.out.println("["+i+"] ["+_wallet.get(i).getCurrency().getCode()+"] => [$"+_wallet.get(i).getAmount()+"]");
+        }
+        System.out.println("-----------------------");
+        return currencyList;
+    }
 
 }
