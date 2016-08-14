@@ -8,6 +8,26 @@ public class MoneyBagTest {
     private MoneyBag myWallet = new MoneyBag();
     
     @Test
+    public void addDifferentCurrencyReturnsABag(){
+        Money myMoney1 = new Money("BRL",50);
+        Money myMoney2 = new Money("USD",70);
+        myWallet = myMoney1.add(myMoney2);
+        assertEquals("BRL",myWallet.allCurrencies().get(0).getCode());
+        assertEquals("USD",myWallet.allCurrencies().get(1).getCode());
+        assertEquals(50,myWallet.getAmount("BRL"));
+        assertEquals(70,myWallet.getAmount("USD"));
+    }
+    
+    @Test
+    public void addSameCurrencyReturnsAMoney(){
+        Money myMoney1 = new Money("BRL",50);
+        Money myMoney2 = new Money("BRL",70);
+        Money myMoneyOut = myMoney1.add(myMoney2);
+        assertEquals("BRL",myMoneyOut.getCurrencyCode());
+        assertEquals(120,myMoneyOut.getAmount());
+    }
+    
+    @Test
     public void allCurrencies(){
         myWallet.add(new Money("USD",50));
         myWallet.add(new Money("BRL",70));
