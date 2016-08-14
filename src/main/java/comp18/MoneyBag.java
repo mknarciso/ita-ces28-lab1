@@ -34,24 +34,14 @@ public class MoneyBag {
     {
         if( hasCurrency(newMoney.getCurrencyCode()) )
         {
-        	int position = currencyPosition(newMoney.getCurrencyCode() );       	
-<<<<<<< HEAD
+        	int position = currencyPosition(newMoney.getCurrencyCode() );
             _wallet.set(position,(Money)_wallet.get(position).add(newMoney));
         }
         else
         {
             _wallet.add(newMoney);
-=======
-            _wallet.set(position,_wallet.get(position).add(newMoney));
->>>>>>> refs/heads/master
         }
-<<<<<<< HEAD
-=======
-        else
-        {
-            _wallet.add(0, newMoney);
-        }
->>>>>>> refs/heads/master
+
     }
     
     public int getAmount(String currencyCode){
@@ -62,10 +52,28 @@ public class MoneyBag {
                     total = total + _wallet.get(i).getAmount();
             }
             return total;
-        } else
+        } else {
             return 0;
+        }
+
     }
+
     
+    public int TotalValueinBRL ()
+    {
+    	int total = 0;
+    	for(int i=0;i < _wallet.size();i++)
+    	{
+        	if(_wallet.get(i).getCurrencyCode().compareTo("BRL") == 0)
+                total = total + _wallet.get(i).getAmount();
+        	else if (_wallet.get(i).getCurrencyCode().compareTo("USD") == 0)
+        		total = total + 3*_wallet.get(i).getAmount();
+        	else if (_wallet.get(i).getCurrencyCode().compareTo("CHF") == 0)
+        		total = total + 2*_wallet.get(i).getAmount();
+        }
+    	return total;
+	}
+
     public List<Currency> allCurrencies(){
         List<Currency> currencyList = new ArrayList<Currency>();
         System.out.println("The money in our bag:");
@@ -78,3 +86,5 @@ public class MoneyBag {
     }
 
 }
+
+
