@@ -23,6 +23,7 @@ whenAddingDifferentMoniesReturnMoneyBag
 em forma de comentarios!
 - quando o JUnit mostrar os testes passando ou não passando, a propria
 leitura dos nomes dos métodos já informa o que deu certo ou errado!
+
 # Processo
 
 1 - Criar a classe Money abaixo no seu ambiente Java, inicialização de
