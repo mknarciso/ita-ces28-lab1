@@ -9,24 +9,31 @@ public class MoneyBagTest {
     
     @Test
     public void convertCurrenciesToBRL(){
-        
-        
-    }
-    
-    @Test
-    public void addDifferentCurrencyReturnsABag(){
-        Money myMoney1 = new Money("BRL",50);
-        Money myMoney2 = new Money("USD",70);
-        Money myMoney3 = new Money("CHF",30);
+        Money myMoney1 = new Money("BRL",50); // = 50
+        Money myMoney2 = new Money("USD",70); // 50 + 3x70 = 260
+        Money myMoney3 = new Money("CHF",30); // 260 + 2x30 = 320
         myWallet = myMoney1.add(myMoney2);
         myWallet.add(myMoney3);
         assertEquals(320,myWallet.totalValueInBRL());
     }
     
     @Test
+    public void addDifferentCurrencyReturnsABag(){
+        Money myMoney1 = new Money("BRL",50);
+        Money myMoney2 = new Money("USD",70);
+        //Return MoneyBag
+        myWallet = myMoney1.add(myMoney2);
+        assertEquals("BRL",myWallet.allCurrencies().get(0).getCode());
+        assertEquals("USD",myWallet.allCurrencies().get(1).getCode());
+        assertEquals(50,myWallet.getAmount("BRL"));
+        assertEquals(70,myWallet.getAmount("USD"));
+    }
+    
+    @Test
     public void addSameCurrencyReturnsAMoney(){
         Money myMoney1 = new Money("BRL",50);
         Money myMoney2 = new Money("BRL",70);
+        //Return Money
         Money myMoneyOut = myMoney1.add(myMoney2);
         assertEquals("BRL",myMoneyOut.getCurrencyCode());
         assertEquals(120,myMoneyOut.getAmount());
