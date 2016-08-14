@@ -35,12 +35,23 @@ public class MoneyBag {
         if( hasCurrency(newMoney.getCurrencyCode()) )
         {
         	int position = currencyPosition(newMoney.getCurrencyCode() );       	
+<<<<<<< HEAD
             _wallet.set(position,(Money)_wallet.get(position).add(newMoney));
         }
         else
         {
             _wallet.add(newMoney);
+=======
+            _wallet.set(position,_wallet.get(position).add(newMoney));
+>>>>>>> refs/heads/master
         }
+<<<<<<< HEAD
+=======
+        else
+        {
+            _wallet.add(0, newMoney);
+        }
+>>>>>>> refs/heads/master
     }
     
     public int getAmount(String currencyCode){
