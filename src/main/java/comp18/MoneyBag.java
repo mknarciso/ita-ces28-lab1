@@ -59,7 +59,7 @@ public class MoneyBag {
     }
 
     
-    public int TotalValueinBRL ()
+    public int totalValueInBRL ()
     {
     	int total = 0;
     	for(int i=0;i < _wallet.size();i++)

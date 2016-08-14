@@ -1,6 +1,9 @@
 package comp18;
 
 class Money {
+    private int _amount;
+    private Currency _currency;
+    
     public Money(){
         _currency = new Currency();
     }
@@ -40,6 +43,8 @@ class Money {
         myCurrency.setCode(code);
         this._currency = myCurrency;
     }
-    private int _amount;
-    private Currency _currency;
+
+    public static void main(String[] args){
+        System.out.println("Hello user! Please check the tests to learn how to use our methods and classes!");
+    }
 }
