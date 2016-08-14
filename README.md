@@ -48,17 +48,22 @@ dependência do tipo construtor na classe Money. Substitua um
 string _currency na classe Money por um Currency _currency!
 
 6 - Refatore os testes de modo que funcionem novamente!
+
 7 - Crie uma classe MoneyBag que vai conter quantidades de dinheiro
 nos vários tipos de moedas, de acordo com a associação abaixo. Por
 exemplo: 10 USD com 20 CHF com 15 EUR.
+
 8 - Teste todos métodos não getters ou setters de MoneyBag no
 JUnit.
+
 9 - Apresente uma aplicação que mostre as várias moedas num objeto
 MoneyBag.
+
 10 - Mude o método add() de Money, de modo que ele volte um valor
 money se a soma ocorre entre moedas iguais ou volte um valor
 moneybag se a soma ocorre entre moedas diferentes. Estruturar as
 atividades necessárias para fazer isso passo-a-passo!
+
 11 - Acrescente um método em MoneyBag que volte o valor total em
 Reais (BRL) das várias moedas que se encontram lá. Isso vai fazer
 com que MoneyBag precise converter valores de moedas diferentes
@@ -70,30 +75,38 @@ de conversão que acabem sempre em números inteiros: BRL, USD
 
 
 class Money {
+    
     public Money() {
     }
+    
     public Money add(Money m) {
         Money money = new Money();
         money.setAmount(this.getAmount() + m.getAmount());
         money.setCurrency(this.getCurrency());
         return money;
     }
+    
     public int getAmount()
     {
         return _amount;
     }
+    
     public void setAmount(int amount)
     {
         this._amount = amount;
     }
+    
     public String getCurrency()
     {
         return _currency;
     }
+    
     public void setCurrency(String currency)
     {
         this._currency = currency;
     }
+    
     private int _amount;
     private String _currency;
+    
 }
