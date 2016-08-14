@@ -1,7 +1,7 @@
 package comp18;
 
-class Money extends Container{
-    public Money() {
+class Money {
+    public Money(){
         _currency = new Currency();
     }
     // Quick constructor
@@ -10,17 +10,16 @@ class Money extends Container{
         _currency = new Currency(currencyCode);
     }
     public <T> T add(Money m) {
-        if(m.getCurrencyCode()==this.getCurrencyCode()){
+        if(m.getCurrencyCode().compareTo(this.getCurrencyCode())==0){
             Money money = new Money();
             money.setAmount(this.getAmount() + m.getAmount());
             money.setCurrency(this.getCurrencyCode());
-            //T result = (T)money;
             return (T)money;
-        } else{
-            MoneyBag newBag = new MoneyBag();
-            newBag.add(this);
-            newBag.add(m);            
-            return (T)newBag;
+        } else {
+            MoneyBag bag = new MoneyBag();
+            bag.add(this);
+            bag.add(m);
+            return (T)bag;
         }
 
     }
