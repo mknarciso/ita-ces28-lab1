@@ -7,11 +7,14 @@ class Money {
     public Money(){
         _currency = new Currency();
     }
-    // Quick constructor
+    //Construtor de Money: constroi um objeto da classe Money, de moeda com sigla dada pela string "currencyCode" e quantidade Amount.
     public Money(String currencyCode, int amount) {
         _amount = amount;
         _currency = new Currency(currencyCode);
     }
+    
+    //Esta função implementa o item 10: adiciona um Money. Se for de moeda iguais, retorna um Money. Se forem moedas diferentes,
+    //retorna uma MoneyBag.
     public <T> T add(Money m) {
         if(m.getCurrencyCode().compareTo(this.getCurrencyCode())==0){
             Money money = new Money();
@@ -26,18 +29,28 @@ class Money {
         }
 
     }
+    
+    //Esta função retorna a quantidade em Money.
     public int getAmount() {
         return _amount;
     }
+    
+    //Esta função é um setter: "seta" a quantidade em Money
     public void setAmount(int amount) {
         this._amount = amount;
     }
+    
+    //Esta função retorna o objeto Currency em Money.
     public Currency getCurrency() {
         return _currency;
     }
+    
+    //Esta função retorna a sigla da moeda em Money.
     public String getCurrencyCode() {
         return _currency.getCode();
     }
+    
+    //Esta função é um setter: "seta" a sigla da moeda em Money.
     public void setCurrency(String code) {
         Currency myCurrency = new Currency();
         myCurrency.setCode(code);
